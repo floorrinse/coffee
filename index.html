@@ -13,10 +13,9 @@
 </head>
 <body class="body container">
     <h1 class="title">Drip Coffee Calculations</h1>
-    
-    <!--testing out dropdown buttons-->
-    <div class="input-group">
-        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+    <label for="beans">How many beans?</label>
+    <div class="input-group mb-3">
+        <input type="text" id="beans" name="beans" class="form-control" aria-label="Text input with dropdown button" placeholder="Amount of beans">
         <div class="input-group-append">
             <button id="dropDownVolume" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">Volume</button>
@@ -28,10 +27,6 @@
             </div>
         </div>
     </div>
-
-
-    <label for="beans">How much beans?</label>
-    <input type="text" id="beans" name="beans" placeholder="Number of Beans">
     <button type="button" class="btn btn-primary btn-sm convert" id="liveAlertBtn">Convert</button>
     <div class="alertContainer" id="liveAlertPlaceholder"></div>
 
