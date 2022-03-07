@@ -5,35 +5,9 @@ document.querySelector('#dropDownVolume').addEventListener('click', toggleVolume
 window.addEventListener('click', mouseOutDropdown);
 
 
-//function call to hide the dropdown menu if user clicks outside of it
-function mouseOutDropdown (e) {
-    let clickDropdown = e.target;
-    if (!document.querySelector('#dropDownVolume').contains(clickDropdown)) {
-        document.querySelector('.input-group-append').classList.remove('show');
-        document.querySelector('.dropdown-menu').classList.remove('show');
-    }
-}
-
-
 //function call to remove the outline of the Convert button when clicked
 function removeFocus(e) {
     e.preventDefault();
-};
-
-
-//function call to toggle the Volume dropdown and set aria-expanded true/false
-function toggleVolume() {
-    document.querySelector('.input-group-append').classList.toggle('show');
-    document.querySelector('.dropdown-menu').classList.toggle('show');
-    // console.log('logging before the if statement: ', document.querySelector('#dropDownVolume').getAttribute('aria-expanded'));
-    let isAriaExpanded = document.querySelector('#dropDownVolume').getAttribute('aria-expanded');
-    if (isAriaExpanded === 'true') {
-        isAriaExpanded = 'false';
-    }
-    else {
-        isAriaExpanded = 'true'
-    };
-    document.querySelector('#dropDownVolume').setAttribute('aria-expanded', isAriaExpanded);
 };
 
 
@@ -59,7 +33,6 @@ function convert(){
     function showAlert() {
         let wrapper = document.createElement('div');
         wrapper.innerHTML = '<div id="liveAlertPlaceholder" class="alert alert-danger alert-dismissible collapse" role="alert"><div class="alertCopy">Please enter a valid number.</div>' + '<button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-        console.log(alertPlaceholder);
         alertPlaceholder.append(wrapper);
         let errorAlert = document.querySelector('.alert');
 
@@ -67,13 +40,13 @@ function convert(){
 
         setTimeout(function () {
             errorAlert.classList.add('collapse');
-        }, 5000);
+        }, 3000);
 
         setTimeout(function () {
             if (alertPlaceholder.children) {
                 alertPlaceholder.removeChild(alertPlaceholder.firstChild);
             }
-        }, 6000);
+        }, 4000);
     };
     
     if (!numRegex.test(amount)) {
@@ -83,6 +56,22 @@ function convert(){
         document.getElementById('currentNum').innerText = amount;
         document.getElementById('conversion').innerText = amount * 2;
     }
+};
+
+
+//function call to toggle the Volume dropdown and set aria-expanded true/false
+function toggleVolume() {
+    document.querySelector('.input-group-append').classList.toggle('show');
+    document.querySelector('.dropdown-menu').classList.toggle('show');
+    // console.log('logging before the if statement: ', document.querySelector('#dropDownVolume').getAttribute('aria-expanded'));
+    let isAriaExpanded = document.querySelector('#dropDownVolume').getAttribute('aria-expanded');
+    if (isAriaExpanded === 'true') {
+        isAriaExpanded = 'false';
+    }
+    else {
+        isAriaExpanded = 'true'
+    };
+    document.querySelector('#dropDownVolume').setAttribute('aria-expanded', isAriaExpanded);
 };
 
 
@@ -99,4 +88,13 @@ function strikeThroughText(event) {
     console.log('this is the target: ', event.target);
     let isChecked = cb.checked;
     cb.nextSibling.classList.toggle('strikethrough', isChecked);
+}
+
+//function call to hide the dropdown menu if user clicks outside of it
+function mouseOutDropdown(e) {
+    let clickDropdown = e.target;
+    if (!document.querySelector('#dropDownVolume').contains(clickDropdown)) {
+        document.querySelector('.input-group-append').classList.remove('show');
+        document.querySelector('.dropdown-menu').classList.remove('show');
+    }
 }
