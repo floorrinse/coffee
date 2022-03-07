@@ -84,8 +84,6 @@ checkBoxes.forEach( cb => cb.addEventListener('change', strikeThroughText));
 
 function strikeThroughText(event) {
     let cb = event.target;
-    console.log('this is the event: ', event);
-    console.log('this is the target: ', event.target);
     let isChecked = cb.checked;
     cb.nextSibling.classList.toggle('strikethrough', isChecked);
 }
