@@ -9,8 +9,14 @@ window.addEventListener('click', mouseOutDropdown);
 
 // console.log(document.querySelector('#dropDownVolume').getAttribute('aria-expanded'));
 
-function mouseOutDropdown () {
-    
+function mouseOutDropdown (e) {
+    let clickDropdown = e.target;
+    console.log('this is the click target:', clickDropdown);
+    console.log('this is the #dropDownVolume', document.querySelector('#dropDownVolume'));
+    if (!document.querySelector('#dropDownVolume').contains(clickDropdown)) {
+        document.querySelector('.input-group-append').classList.remove('show');
+        document.querySelector('.dropdown-menu').classList.remove('show');
+    }
 }
 
 
