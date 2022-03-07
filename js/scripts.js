@@ -4,15 +4,10 @@ document.querySelector('.convert').addEventListener('click', convert);
 document.querySelector('#dropDownVolume').addEventListener('click', toggleVolume);
 window.addEventListener('click', mouseOutDropdown);
 
-// let cupsVolume = document.querySelector('#cups')
-// console.log(cupsVolume);
 
-// console.log(document.querySelector('#dropDownVolume').getAttribute('aria-expanded'));
-
+//function call to hide the dropdown menu if user clicks outside of it
 function mouseOutDropdown (e) {
     let clickDropdown = e.target;
-    console.log('this is the click target:', clickDropdown);
-    console.log('this is the #dropDownVolume', document.querySelector('#dropDownVolume'));
     if (!document.querySelector('#dropDownVolume').contains(clickDropdown)) {
         document.querySelector('.input-group-append').classList.remove('show');
         document.querySelector('.dropdown-menu').classList.remove('show');
