@@ -82,12 +82,12 @@ function toggleVolume() {
 //the below checkBoxes obj applies a addEventListener function on each checkbox. the function listens for the 'change' event, and if 'change' is done, then strikeThroughText func (the above func) is called for each checkbox 
 let checkBoxes = document.querySelectorAll('.form-check-input');
 
-checkBoxes.forEach( cb => cb.addEventListener('change', strikeThroughText));
+checkBoxes.forEach(cb => cb.addEventListener('change', strikeThroughText));
 
 function strikeThroughText(event) {
     let cb = event.target;
     let isChecked = cb.checked;
-    cb.nextSibling.classList.toggle('strikethrough', isChecked);
+    cb.nextElementSibling.classList.toggle('strikethrough', isChecked);
 }
 
 //function call to hide the dropdown menu if user clicks outside of it
