@@ -13,7 +13,6 @@ function removeFocus(e) {
 
 //function call for updating the volume name in the dropdown menu
 let volumes = document.querySelectorAll('.dropdown-menu a');
-
 volumes.forEach(volume => volume.addEventListener('click', updateVolume));
 
 function updateVolume(e) {
@@ -21,7 +20,8 @@ function updateVolume(e) {
     document.querySelector('#dropDownVolume').innerText = volume;
     document.querySelector('.input-group-append').classList.toggle('show');
     document.querySelector('.dropdown-menu').classList.toggle('show');
-    document.querySelector('#volumeForPours').innerText = volume;
+    let volumeForPours = document.querySelectorAll('#volumeForPours');
+    volumeForPours.forEach(volumeForPour => volumeForPour.innerText = volume)
 };
 
 
