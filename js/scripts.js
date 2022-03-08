@@ -21,6 +21,7 @@ function updateVolume(e) {
     document.querySelector('#dropDownVolume').innerText = volume;
     document.querySelector('.input-group-append').classList.toggle('show');
     document.querySelector('.dropdown-menu').classList.toggle('show');
+    document.querySelector('#volumeForPours').innerText = volume;
 };
 
 
