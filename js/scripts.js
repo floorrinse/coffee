@@ -54,8 +54,9 @@ function convert(){
         showAlert();
     }
     else {
-        document.getElementById('currentNum').innerText = amount;
-        document.getElementById('conversion').innerText = amount * 2;
+        document.getElementById('currentAmount').innerText = amount;
+        let allConversionAmounts = document.querySelectorAll('#conversion');
+        allConversionAmounts.forEach(conversionAmount => conversionAmount.innerText = amount * 2);
     }
 };
 
