@@ -33,18 +33,20 @@
     <div class="alertContainer" id="liveAlertPlaceholder"></div>
 
     <section> 
-        <p>Current amount: <span class="currentAmountValue" id="currentNum"></span></p>
+        <p>Current amount: <span class="currentAmountValue" id="currentAmount"></span></p>
     </section>
 
     <section class="results">  
-        <p><span class="numberConversions" id="conversion"></span>
+        <p><span class="numberConversions" id="conversion">0</span>
         <span id="volumeForPours">ounces</span> of water</p>
     </section>
 
     <div class="form-check">
         <ul class="list-unstyled">
         <li>
-            <input class="form-check-input" id="flexCheckDefault" type="checkbox" value="Pour first"><label class="form-check-label" for="flexCheckDefault">Pour <span id="volumeForPours"></span> water to bloom</label>
+            <input class="form-check-input" id="flexCheckDefault" type="checkbox" value="Pour first">
+            <label class="form-check-label" for="flexCheckDefault">Pour
+                <span id="conversion">0</span> <span id="volumeForPours">ounces</span> of water to bloom</label>
         </li>
 
         <li>
