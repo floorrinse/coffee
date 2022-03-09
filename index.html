@@ -28,6 +28,16 @@
             </div>
         </div>
     </div>
+
+    <div>
+    <p>How strong?</p>
+    <p>Less water equals a stronger brew.</p>
+        <div class="sliderContainer">
+        <input class="slider" type="range" min="1" max="5" value="3">
+        </div>
+        <p>Water: <span class="waterValue">3</span></p>
+    </div>
+
     <button type="button" class="btn btn-primary convert" id="liveAlertBtn">Convert</button>
     <div class="alertContainer" id="liveAlertPlaceholder"></div>
 
@@ -39,15 +49,15 @@
         <p><span class="numberConversions" id="conversion">0</span>
         <span id="volumeForPours">ounces</span> of water</p>
     </section>
-
+    
     <div class="form-check">
         <ul class="list-unstyled">
         <li>
             <input class="form-check-input" id="flexCheckDefault" type="checkbox" value="Pour first">
             <label class="form-check-label" for="flexCheckDefault">
                 Pour
-                <span id="conversion">0</span> 
-                <span id="volumeForPours">ounces</span> 
+                <span id="bloomConversion">0</span> 
+                <span id="volumeForPours">grams</span> 
                 of water to bloom
             </label>
         </li>
@@ -56,7 +66,7 @@
             <input class="form-check-input" id="flexCheckDefault"  type="checkbox" value="Pour second">
             <label class="form-check-label" for="flexCheckDefault">
                 Pour <span id="conversion">0</span>
-                <span id="volumeForPours">ounces</span>
+                <span id="volumeForPours">grams</span>
                 of water second time
             </label>
         </li>
@@ -64,7 +74,9 @@
         <li>
             <input class="form-check-input" id="flexCheckDefault"  type="checkbox" value="Pour third">
             <label class="form-check-label" for="flexCheckDefault">
-                Pour water third time
+                Pour <span id="conversion">0</span>
+                <span id="volumeForPours">grams</span> 
+                of water third time
             </label>
         </li>
 
