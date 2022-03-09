@@ -3,6 +3,7 @@ document.querySelector('.convert').addEventListener('mousedown', removeFocus);
 document.querySelector('.convert').addEventListener('click', convert);
 document.querySelector('#dropDownVolume').addEventListener('click', toggleVolume);
 window.addEventListener('click', mouseOutDropdown);
+document.querySelector('.slider').addEventListener('input', displayValue);
 
 
 //function call to remove the outline of the Convert button when clicked
@@ -55,8 +56,13 @@ function convert(){
     }
     else {
         document.getElementById('currentAmount').innerText = amount;
-        let allConversionAmounts = document.querySelectorAll('#conversion');
-        allConversionAmounts.forEach(conversionAmount => conversionAmount.innerText = amount * 2);
+        document.querySelector('#bloomConversion').innerText = amount * 2;
+        console.log(amount);
+        console.log(selectedWaterValue);
+        if (selectedWaterValue !== undefined) {
+            let allConversionAmounts = document.querySelectorAll('#conversion');
+            allConversionAmounts.forEach(conversionAmount => conversionAmount.innerText = amount * selectedWaterValue)
+        }
     }
 };
 
@@ -98,3 +104,15 @@ function mouseOutDropdown(e) {
         document.querySelector('.dropdown-menu').classList.remove('show');
     }
 }
+
+
+let selectedWaterValue;
+//function call to display the slider value in the below p tag
+function displayValue(e) {
+    let selectedValue = e.target.value;
+    let slider = document.querySelector('.slider');
+    document.querySelector('.waterValue').innerText = selectedValue;
+    selectedWaterValue = selectedValue;
+    let percentage = (selectedValue - slider.min) / (slider.max - slider.min) * 100;
+    slider.style.backgroundImage = `linear-gradient(90deg, #4589d8 ${percentage}%, transparent ${percentage}%)`;
+};
