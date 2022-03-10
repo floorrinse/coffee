@@ -57,8 +57,7 @@ function convert(){
         document.getElementById('currentAmount').innerText = amount;
         document.querySelector('#bloomConversion').innerText = amount * 2;
         let allConversionAmounts = document.querySelectorAll('#conversion');
-        allConversionAmounts.forEach(conversionAmount => conversionAmount.innerText = amount * selectedCoffeeStrength)
-        
+        allConversionAmounts.forEach(conversionAmount => conversionAmount.innerText = amount * Math.abs(selectedCoffeeStrength))
     }
 };
 
@@ -102,16 +101,17 @@ function mouseOutDropdown(e) {
 }
 
 
-let selectedCoffeeStrength = 3;
+let selectedCoffeeStrength = -4;
 //function call to display the slider value in the below p tag
 function displayValue(e) {
-    let selectedValue = e.target.value;
-    let coffeePreferences = ['Extra Light', 'Light', 'Medium', 'Strong', 'Extra Strong'];
+    let selectedValue = Math.abs(e.target.value);
+    console.log(selectedValue);
+    let coffeePreferences = ['Extra Strong', 'Strong', 'Medium', 'Light','Extra Light'];
     let slider = document.querySelector('.slider');
-    document.querySelector('.coffeeStrength').innerText = coffeePreferences[selectedValue-1];
+    document.querySelector('.coffeeStrength').innerText = coffeePreferences[selectedValue-2];
 
     selectedCoffeeStrength = selectedValue;
 
-    let percentage = (selectedValue - slider.min) / (slider.max - slider.min) * 100;
+    let percentage = (selectedValue - Math.abs(slider.min)) / (Math.abs(slider.max) - Math.abs(slider.min)) * 100;
     slider.style.backgroundImage = `linear-gradient(90deg, #863426 ${percentage}%, transparent ${percentage}%)`;
 };
