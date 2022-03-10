@@ -32,12 +32,11 @@ function convert(){
     const numRegex = new RegExp('^[0-9]+$');
     let amount = document.getElementById('beans').value;
 
-    function showAlert() {
+    function showAlert(message) {
         let wrapper = document.createElement('div');
-        wrapper.innerHTML = '<div id="liveAlertPlaceholder" class="alert alert-danger alert-dismissible collapse" role="alert"><div class="alertCopy">Please enter a valid number.</div>' + '<button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+        wrapper.innerHTML = '<div id="liveAlertPlaceholder" class="alert alert-danger alert-dismissible collapse" role="alert"><div class="alertCopy">'+ message +'</div><button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button></div>';
         alertPlaceholder.append(wrapper);
         let errorAlert = document.querySelector('.alert');
-
         errorAlert.classList.remove('collapse');
 
         setTimeout(function () {
@@ -52,17 +51,17 @@ function convert(){
     };
     
     if (!numRegex.test(amount)) {
-        showAlert();
+        showAlert('Please enter a valid number.');
+    }
+    else if (selectedCoffeeStrength === undefined) {
+        showAlert('Please select your coffee preference.');
     }
     else {
         document.getElementById('currentAmount').innerText = amount;
         document.querySelector('#bloomConversion').innerText = amount * 2;
-        console.log(amount);
-        console.log(selectedWaterValue);
-        if (selectedWaterValue !== undefined) {
-            let allConversionAmounts = document.querySelectorAll('#conversion');
-            allConversionAmounts.forEach(conversionAmount => conversionAmount.innerText = amount * selectedWaterValue)
-        }
+        let allConversionAmounts = document.querySelectorAll('#conversion');
+        allConversionAmounts.forEach(conversionAmount => conversionAmount.innerText = amount * selectedCoffeeStrength)
+        
     }
 };
 
@@ -106,13 +105,16 @@ function mouseOutDropdown(e) {
 }
 
 
-let selectedWaterValue;
+let selectedCoffeeStrength;
 //function call to display the slider value in the below p tag
 function displayValue(e) {
     let selectedValue = e.target.value;
+    let coffeePreferences = ['Light', 'Medium', 'Strong'];
     let slider = document.querySelector('.slider');
-    document.querySelector('.waterValue').innerText = selectedValue;
-    selectedWaterValue = selectedValue;
+    document.querySelector('.coffeeStrength').innerText = coffeePreferences[selectedValue-1];
+
+    selectedCoffeeStrength = selectedValue;
+
     let percentage = (selectedValue - slider.min) / (slider.max - slider.min) * 100;
     slider.style.backgroundImage = `linear-gradient(90deg, #4589d8 ${percentage}%, transparent ${percentage}%)`;
 };
