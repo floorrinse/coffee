@@ -53,9 +53,6 @@ function convert(){
     if (!numRegex.test(amount)) {
         showAlert('Please enter a valid number.');
     }
-    else if (selectedCoffeeStrength === undefined) {
-        showAlert('Please select your coffee preference.');
-    }
     else {
         document.getElementById('currentAmount').innerText = amount;
         document.querySelector('#bloomConversion').innerText = amount * 2;
@@ -105,11 +102,11 @@ function mouseOutDropdown(e) {
 }
 
 
-let selectedCoffeeStrength;
+let selectedCoffeeStrength = 3;
 //function call to display the slider value in the below p tag
 function displayValue(e) {
     let selectedValue = e.target.value;
-    let coffeePreferences = ['Light', 'Medium', 'Strong'];
+    let coffeePreferences = ['Extra Light', 'Light', 'Medium', 'Strong', 'Extra Strong'];
     let slider = document.querySelector('.slider');
     document.querySelector('.coffeeStrength').innerText = coffeePreferences[selectedValue-1];
 
