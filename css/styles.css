@@ -104,7 +104,7 @@ table {
   opacity: 0.8;
   -webkit-transition: .2s;
   transition: opacity .2s;
-  background-image: linear-gradient(90deg, #4589d8 50%, transparent 50%);
+  background-image: linear-gradient(90deg, #863426 50%, transparent 50%);
 }
 /* { ʕ•ᴥ•ʔっ TO-DO: create css for ::-moz-range-thumb when we can test with mozilla firefox} */ 
 .slider::-webkit-slider-thumb {

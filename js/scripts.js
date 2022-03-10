@@ -113,5 +113,5 @@ function displayValue(e) {
     selectedCoffeeStrength = selectedValue;
 
     let percentage = (selectedValue - slider.min) / (slider.max - slider.min) * 100;
-    slider.style.backgroundImage = `linear-gradient(90deg, #4589d8 ${percentage}%, transparent ${percentage}%)`;
+    slider.style.backgroundImage = `linear-gradient(90deg, #863426 ${percentage}%, transparent ${percentage}%)`;
 };
