@@ -13,7 +13,7 @@
 </head>
 
 <body class="body container">
-    <h1 class="title">Drip Coffee Calculations</h1>
+    <h1 class="title">Pour Over Coffee Calculations</h1>
     <label for="beans">How many beans?</label>
     <div class="input-group mb-3">
         <input type="text" id="beans" name="beans" class="form-control" aria-label="Text input with dropdown button" placeholder="Amount of beans">
@@ -30,11 +30,11 @@
     </div>
 
     <div>
-    <p>How strong do you like your coffee?</p>
+    <p>How do you like your coffee?</p>
         <div class="sliderContainer">
-        <input class="slider" type="range" min="1" max="3" value="1"/>
+        <input class="slider" type="range" min="1" max="5" value="3"/>
         </div>
-        <p>Strength: <span class="coffeeStrength">Light</span></p>
+        <p>Strength: <span class="coffeeStrength">Medium</span></p>
     </div>
 
     <button type="button" class="btn btn-primary convert" id="liveAlertBtn">Convert</button>
@@ -46,7 +46,7 @@
 
     <section class="results">  
         <p><span class="numberConversions" id="conversion">0</span>
-        <span id="volumeForPours">ounces</span> of water</p>
+        <span id="volumeForPours">grams</span> of water</p>
     </section>
     
     <div class="form-check">
