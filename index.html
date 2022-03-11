@@ -14,10 +14,10 @@
 </head>
 
 <body class="body container">
-    <h1 class="h1">Pour Over Coffee Calculations</h1>
+    <h1 class="h1 mb-3">Pour Over Coffee Calc</h1>
     <label for="beans">How many beans?</label>
-    <div class="input-group mb-3">
-        <input type="text" id="beans" name="beans" class="form-control" aria-label="Text input with dropdown button" placeholder="Amount of beans">
+    <div class="input-group mb-4">
+        <input type="number" pattern="[0-9]*" id="beans" name="beans" class="form-control" aria-label="Text input with dropdown button" placeholder="Amount of beans">
         <div class="input-group-append">
             <button id="dropDownVolume" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">grams</button>
@@ -30,25 +30,27 @@
         </div>
     </div>
 
-    <div>
-    <p>How do you like your coffee?</p>
+    <div class="mb-4">
+    <p class="p-margin">How do you like your coffee?</p>
         <div class="sliderContainer">
         <input class="slider" type="range" min="-6" max="-2" value="-4"/>
         </div>
         <p>Strength: <span class="coffeeStrength">Medium</span></p>
     </div>
 
+    <div class="mb-4">
     <button type="button" class="btn btn-primary convert" id="liveAlertBtn">Convert</button>
     <div class="alertContainer" id="liveAlertPlaceholder"></div>
+    </div>
 
     <section> 
-        <p>Current amount of coffee: <span class="currentAmountValue" id="currentAmount"></span></p>
+        <p>Current amount of coffee: <span class="currentAmountValue" id="currentAmount">0</span><span id="volumeForPours"> grams</span></p>
     </section>
 
-    <section class="results">  
+    <!-- <section class="results">  
         <p><span class="numberConversions" id="conversion">0</span>
         <span id="volumeForPours">grams</span> of water for each pour</p>
-    </section>
+    </section> -->
     
     <div class="form-check">
         <ul class="list-unstyled">
