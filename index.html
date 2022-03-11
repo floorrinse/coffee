@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -13,13 +14,13 @@
 </head>
 
 <body class="body container">
-    <h1 class="title">Drip Coffee Calculations</h1>
+    <h1 class="h1 mb-3">Pour Over Coffee Calc</h1>
     <label for="beans">How many beans?</label>
-    <div class="input-group mb-3">
-        <input type="text" id="beans" name="beans" class="form-control" aria-label="Text input with dropdown button" placeholder="Amount of beans">
+    <div class="input-group mb-4">
+        <input type="number" pattern="[0-9]*" id="beans" name="beans" class="form-control" aria-label="Text input with dropdown button" placeholder="Amount of beans">
         <div class="input-group-append">
             <button id="dropDownVolume" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">Volume</button>
+                aria-haspopup="true" aria-expanded="false">grams</button>
             <div class="dropdown-menu">
                 <a id="ounces" class="dropdown-item" href="#">ounces</a>
                 <a id="cups" class="dropdown-item" href="#">cups</a>
@@ -28,26 +29,40 @@
             </div>
         </div>
     </div>
+
+    <div class="mb-4">
+    <p class="p-margin">How do you like your coffee?</p>
+        <div class="sliderContainer">
+        <input class="slider" type="range" min="-6" max="-2" value="-4"/>
+        </div>
+        <p>Strength: <span class="coffeeStrength">Medium</span></p>
+    </div>
+
+    <div class="mb-4">
     <button type="button" class="btn btn-primary convert" id="liveAlertBtn">Convert</button>
     <div class="alertContainer" id="liveAlertPlaceholder"></div>
+    </div>
 
     <section> 
-        <p>Current amount: <span class="currentAmountValue" id="currentAmount"></span></p>
+        <p>Current amount of coffee: 
+            <span class="currentAmountValue" id="currentAmount">0</span>
+            <span id="volumeForPours">grams</span>
+        </p>
     </section>
 
-    <section class="results">  
+    <!-- <section class="results">  
         <p><span class="numberConversions" id="conversion">0</span>
-        <span id="volumeForPours">ounces</span> of water</p>
-    </section>
-
+        <span id="volumeForPours">grams</span> of water for each pour</p>
+    </section> -->
+    
     <div class="form-check">
         <ul class="list-unstyled">
         <li>
             <input class="form-check-input" id="flexCheckDefault" type="checkbox" value="Pour first">
             <label class="form-check-label" for="flexCheckDefault">
                 Pour
-                <span id="conversion">0</span> 
-                <span id="volumeForPours">ounces</span> 
+                <span id="bloomConversion">0</span> 
+                <span id="volumeForPours">grams</span> 
                 of water to bloom
             </label>
         </li>
@@ -56,15 +71,27 @@
             <input class="form-check-input" id="flexCheckDefault"  type="checkbox" value="Pour second">
             <label class="form-check-label" for="flexCheckDefault">
                 Pour <span id="conversion">0</span>
-                <span id="volumeForPours">ounces</span>
-                of water second time
+                <span id="volumeForPours">grams</span>
+                of water 1st time
             </label>
         </li>
 
         <li>
             <input class="form-check-input" id="flexCheckDefault"  type="checkbox" value="Pour third">
             <label class="form-check-label" for="flexCheckDefault">
-                Pour water third time
+                Pour <span id="conversion">0</span>
+                <span id="volumeForPours">grams</span> 
+                of water 2nd time
+            </label>
+        </li>
+
+
+        <li>
+            <input class="form-check-input" id="flexCheckDefault" type="checkbox" value="Pour third">
+            <label class="form-check-label" for="flexCheckDefault">
+                Pour <span id="conversion">0</span>
+                <span id="volumeForPours">grams</span>
+                of water 3rd time
             </label>
         </li>
 

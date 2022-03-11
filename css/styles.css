@@ -45,12 +45,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 .body {
   padding: 20px;
 }
-.title {
+.h1 {
   font-weight: bold;
-  font-size: 20px;
 }
 .results {
   /* margin: 20px; */
@@ -81,12 +85,61 @@ table {
 .currentAmountValue {
   font-weight: bold;
 }
+.p-margin {
+  margin-bottom: 5px;
+}
 .input-group > .form-control {
-  flex: .5 1 auto;
+  flex: .75 1 auto;
+}
+.sliderContainer {
+  width: 100%;
+}
+.slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: inherit;
+  width: 82%;
+  height: 20px;
+  border-radius: 10px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.8;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  background-image: linear-gradient(90deg, #863426 50%, transparent 50%);
+}
+/* { ʕ•ᴥ•ʔっ TO-DO: create css for ::-moz-range-thumb when we can test with mozilla firefox} */ 
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 25px;
+  width: 25px;
+  border-radius: 15px;
+  background: #ffffff;
+  cursor: pointer;
+}
+.slider:hover {
+  opacity: 3;
+}
+/* Chrome, Safari, Edge, Opera for input field num */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox for input field num */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 @media only screen and (min-width: 768px) {
   .alert-danger {
     padding: 4%;
+  }
+  .input-group > .form-control {
+    flex: .5 1 auto;
+  }
+  .slider {
+    width: 58%;
   }
 }

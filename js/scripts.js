@@ -3,6 +3,7 @@ document.querySelector('.convert').addEventListener('mousedown', removeFocus);
 document.querySelector('.convert').addEventListener('click', convert);
 document.querySelector('#dropDownVolume').addEventListener('click', toggleVolume);
 window.addEventListener('click', mouseOutDropdown);
+document.querySelector('.slider').addEventListener('input', displayValue);
 
 
 //function call to remove the outline of the Convert button when clicked
@@ -31,12 +32,11 @@ function convert(){
     const numRegex = new RegExp('^[0-9]+$');
     let amount = document.getElementById('beans').value;
 
-    function showAlert() {
+    function showAlert(message) {
         let wrapper = document.createElement('div');
-        wrapper.innerHTML = '<div id="liveAlertPlaceholder" class="alert alert-danger alert-dismissible collapse" role="alert"><div class="alertCopy">Please enter a valid number.</div>' + '<button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+        wrapper.innerHTML = '<div id="liveAlertPlaceholder" class="alert alert-danger alert-dismissible collapse" role="alert"><div class="alertCopy">'+ message +'</div><button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button></div>';
         alertPlaceholder.append(wrapper);
         let errorAlert = document.querySelector('.alert');
-
         errorAlert.classList.remove('collapse');
 
         setTimeout(function () {
@@ -51,12 +51,13 @@ function convert(){
     };
     
     if (!numRegex.test(amount)) {
-        showAlert();
+        showAlert('Please enter a valid number.');
     }
     else {
         document.getElementById('currentAmount').innerText = amount;
+        document.querySelector('#bloomConversion').innerText = amount * 2;
         let allConversionAmounts = document.querySelectorAll('#conversion');
-        allConversionAmounts.forEach(conversionAmount => conversionAmount.innerText = amount * 2);
+        allConversionAmounts.forEach(conversionAmount => conversionAmount.innerText = amount * Math.abs(selectedCoffeeStrength))
     }
 };
 
@@ -98,3 +99,19 @@ function mouseOutDropdown(e) {
         document.querySelector('.dropdown-menu').classList.remove('show');
     }
 }
+
+
+let selectedCoffeeStrength = -4;
+//function call to display the slider value in the below p tag
+function displayValue(e) {
+    let selectedValue = Math.abs(e.target.value);
+    console.log(selectedValue);
+    let coffeePreferences = ['Extra Strong', 'Strong', 'Medium', 'Light','Extra Light'];
+    let slider = document.querySelector('.slider');
+    document.querySelector('.coffeeStrength').innerText = coffeePreferences[selectedValue-2];
+
+    selectedCoffeeStrength = selectedValue;
+
+    let percentage = (selectedValue - Math.abs(slider.min)) / (Math.abs(slider.max) - Math.abs(slider.min)) * 100;
+    slider.style.backgroundImage = `linear-gradient(90deg, #863426 ${percentage}%, transparent ${percentage}%)`;
+};
