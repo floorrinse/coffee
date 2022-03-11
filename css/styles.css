@@ -52,7 +52,6 @@ table {
 }
 .body {
   padding: 20px;
-  max-width: 1170px;
 }
 .h1 {
   font-weight: bold;
@@ -86,8 +85,11 @@ table {
 .currentAmountValue {
   font-weight: bold;
 }
+.p-margin {
+  margin-bottom: 5px;
+}
 .input-group > .form-control {
-  flex: .5 1 auto;
+  flex: .75 1 auto;
 }
 .sliderContainer {
   width: 100%;
@@ -96,8 +98,8 @@ table {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: inherit;
-  width: 50%;
-  height: 15px;
+  width: 82%;
+  height: 20px;
   border-radius: 10px;
   background: #d3d3d3;
   outline: none;
@@ -110,18 +112,34 @@ table {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid #000000;
-  height: 20px;
-  width: 20px;
-  border-radius: 10px;
+  height: 25px;
+  width: 25px;
+  border-radius: 15px;
   background: #ffffff;
   cursor: pointer;
 }
 .slider:hover {
   opacity: 3;
 }
+/* Chrome, Safari, Edge, Opera for input field num */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox for input field num */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 @media only screen and (min-width: 768px) {
   .alert-danger {
     padding: 4%;
+  }
+  .input-group > .form-control {
+    flex: .5 1 auto;
+  }
+  .slider {
+    width: 58%;
   }
 }
