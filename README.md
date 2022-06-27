@@ -1,5 +1,5 @@
 # [coffee calc](https://coffeecalc.netlify.app/)
-A pour over coffee calculator based on your coffee to bean ratio. 
+A pour over coffee calculator based on your coffee to bean ratio. Built with [Bootstrap](https://getbootstrap.com/).
 
 ## next iterations 🔧 ##
 - [ ] Add a timer
